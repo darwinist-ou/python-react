@@ -85,10 +85,10 @@ jobs:
       run: |        
         docker build -t $BUILD_IMAGE-python \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
-          --build-arg GITHUB_REF="$GITHUB_REF" -f python/Dockerfile
+          --build-arg GITHUB_REF="$GITHUB_REF" -f python/Dockerfile python/.
         docker build -t $BUILD_IMAGE-react \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
-          --build-arg GITHUB_REF="$GITHUB_REF" -f react/Dockerfile
+          --build-arg GITHUB_REF="$GITHUB_REF" -f react/Dockerfile my-app/.
     # Push the Docker image to Google Container Registry
     - name: Publish
       run: |
