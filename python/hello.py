@@ -6,8 +6,9 @@ from flask import render_template
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
+bp = Blueprint()
 
-@app.route("/")
+@app.route("/api")
 def hello():
     if 'THIS_SERVICE' in os.environ:
         return_dict = {}
@@ -20,10 +21,6 @@ def hello():
     else:
         return_dict = {"message": "Hello World"}
     return jsonify(return_dict)
-
-@app.route("/serve_app")
-def serve_app():
-    return render_template("app.html")
 
 @app.route("/healthz")
 def healthz():
