@@ -6,7 +6,6 @@ from flask import render_template
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
-bp = Blueprint()
 
 @app.route("/api")
 def hello():
